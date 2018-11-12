@@ -1,0 +1,44 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Ingresar a la aplicacion</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-5 pr-1">
+                <div class="form-group">
+                  <div class="panel-heading">
+                    <H1>E.V.A - UMSS</H1>
+                  </div>
+                  <div class="form-group">
+                    <span class="input-group-addon" id="basic-addon1">Correo</span>
+                    <input type="email" class="form-control" placeholder="Correo" aria-describedby="basic-addon1"
+                    [(ngModel)]="email" name="email">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <span class="input-group-addon" id="basic-addon1">Contraseña</span>
+                    <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1"
+                    [(ngModel)]="password" name="password">
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary" (click)="updateUser()">
+                      <span aria-hidden="true"></span> Ingresar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
