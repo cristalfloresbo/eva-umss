@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
       response => {
         localStorage.setItem('user', "Admin");
         localStorage.setItem("token", response.toString());
+        window.location.reload();
       }
     );
-    window.location.reload();
   }
 
 }
