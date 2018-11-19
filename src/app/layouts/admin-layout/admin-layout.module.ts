@@ -14,6 +14,8 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterUserComponent } from '../../register-user/register-user.component'
+import { CourseListComponent } from '../../courses/course-list/course-list.component';
+import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
 
 @NgModule({
   imports: [
@@ -33,6 +35,8 @@ import { RegisterUserComponent } from '../../register-user/register-user.compone
     MapsComponent,
     RegisterUserComponent,
     NotificationsComponent,
+    CourseListComponent,
+    CourseDescriptionComponent,
   ]
 })
 
