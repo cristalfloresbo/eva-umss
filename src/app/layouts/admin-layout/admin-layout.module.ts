@@ -17,6 +17,8 @@ import { RegisterUserComponent } from '../../register-user/register-user.compone
 import { CourseListComponent } from '../../courses/course-list/course-list.component';
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
 
+import { CoursesService } from '../../services/courses.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -37,7 +39,10 @@ import { CourseDescriptionComponent } from '../../courses/course-description/cou
     NotificationsComponent,
     CourseListComponent,
     CourseDescriptionComponent,
+  ],
+  providers: [
+    CoursesService,
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
