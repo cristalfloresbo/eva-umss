@@ -14,10 +14,12 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterUserComponent } from '../../register-user/register-user.component'
+import { TaskComponent } from '../../task/task.component';
 import { CourseListComponent } from '../../courses/course-list/course-list.component';
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
 
 import { CoursesService } from '../../services/courses.service';
+import { TaskService } from '../../services/task.service';
 
 @NgModule({
   imports: [
@@ -36,12 +38,14 @@ import { CoursesService } from '../../services/courses.service';
     IconsComponent,
     MapsComponent,
     RegisterUserComponent,
+    TaskComponent,
     NotificationsComponent,
     CourseListComponent,
     CourseDescriptionComponent,
   ],
   providers: [
     CoursesService,
+    TaskService
   ]
 })
 
