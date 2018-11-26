@@ -35,6 +35,13 @@ export class TaskComponent implements OnInit {
         this.taskList = data.json();
       }
     );
+  }
 
+  deliverTask(taskId: number) {
+    this.service.deliverTask(taskId).subscribe(
+      data => {
+        this.getTasks();
+      }
+    );
   }
 }
