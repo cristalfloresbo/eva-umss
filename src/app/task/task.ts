@@ -3,4 +3,5 @@ export class Task {
     title: string;
     comment: string;
     deliveryDate: Date;
+    status: boolean;
 }
