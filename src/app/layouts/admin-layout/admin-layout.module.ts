@@ -17,6 +17,7 @@ import { RegisterUserComponent } from '../../register-user/register-user.compone
 import { TaskComponent } from '../../task/task.component';
 import { CourseListComponent } from '../../courses/course-list/course-list.component';
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
+import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
 
 import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
@@ -42,6 +43,7 @@ import { TaskService } from '../../services/task.service';
     NotificationsComponent,
     CourseListComponent,
     CourseDescriptionComponent,
+    CourseRegisterComponent,
   ],
   providers: [
     CoursesService,
