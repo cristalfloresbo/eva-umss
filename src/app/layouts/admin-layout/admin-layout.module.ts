@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterUserComponent } from '../../register-user/register-user.component'
 import { TaskComponent } from '../../task/task.component';
+import { DeliverTaskComponent } from '../../task/deliver-task/deliver-task.component';
 import { CourseListComponent } from '../../courses/course-list/course-list.component';
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
@@ -40,6 +41,7 @@ import { TaskService } from '../../services/task.service';
     MapsComponent,
     RegisterUserComponent,
     TaskComponent,
+    DeliverTaskComponent,
     NotificationsComponent,
     CourseListComponent,
     CourseDescriptionComponent,

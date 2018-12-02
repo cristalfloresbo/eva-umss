@@ -1,7 +1,7 @@
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
-  <div class="row">
+  <div class="row" *ngIf="!studentRole">
     <div class="col-md-12">
       <div class="card" >
         <div class="card-header">
@@ -60,24 +60,24 @@
             <th >
               Fecha Limite
             </th>
-            <th *ngIf="user.role === student">
+            <th>
             </th>
           </thead>
           <tbody>
             <tr *ngFor="let task of taskList">
               <td>
-                task.id
+                {{task.id}}
               </td>
               <td>
-                task.title
+                {{task.title}}
               </td>
               <td>
-                task.deliveryDate
+                {{task.deliveryDate}}
               </td>
-              <td *ngIf="!task.status">
+              <td>
                 <div class="btn-group" >
-                  <button type="button" class="btn btn-primary" (click)="deliveryTask(task.id)">
-                    <span aria-hidden="true"></span> Presentar
+                  <button type="button" class="btn btn-primary" *ngIf="studentRole" [routerLink]="['/deliver-task', task.id]">
+                    <span aria-hidden="true"></span> Redactar
                   </button>
                 </div>
               </td>
