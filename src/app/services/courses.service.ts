@@ -23,4 +23,8 @@ export class CoursesService {
     headers.append('authentication', 'Bearer' + localStorage.getItem('token'));
     return new RequestOptions({ headers: headers });
   }
+
+  postCourse(course: any) {
+    this.http.post(this.route, course);
+  }
 }
