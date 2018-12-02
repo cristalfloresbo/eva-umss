@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Question } from './question';
 import { Answer } from './answer';
 
@@ -6,13 +6,10 @@ import { Answer } from './answer';
     selector: 'app-question-format',
     templateUrl: './question-format.component.html'
 })
-export class QuestionFormat implements OnInit{
+export class QuestionFormat {
+
     @Input() question:Question;
     @Input() index:number;
-
-    ngOnInit() {
-        console.log(this.question);
-    }
 
     createAnswer() {
         var answer = new Answer();
