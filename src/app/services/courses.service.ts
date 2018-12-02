@@ -15,4 +15,8 @@ export class CoursesService {
   getCourse(id) {
     return this.http.get(this.route + '/' + id);
   }
+
+  postCourse(course: any) {
+    this.http.post(this.route, course);
+  }
 }
