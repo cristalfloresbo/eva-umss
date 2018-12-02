@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class AuthService {
 
-  route = "http://localhost:54721/account/";
+  route = "http://localhost:64277/account/";
 
   constructor(private http: Http) { }
 
