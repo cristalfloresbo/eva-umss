@@ -9,6 +9,7 @@ import { CourseDescriptionComponent } from '../../courses/course-description/cou
 import { CourseStudentsListComponent } from '../../courses/course-students-list/course-students-list.component';
 
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
+import { ExamRegisterComponent } from '../../exam/exam-register.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -19,4 +20,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'course-description/:id', component: CourseDescriptionComponent },
     { path: 'course-students', component: CourseStudentsListComponent },
     { path: 'course-register', component: CourseRegisterComponent },
+    { path: 'register-exam', component: ExamRegisterComponent },
 ];
