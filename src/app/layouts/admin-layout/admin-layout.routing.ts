@@ -6,6 +6,8 @@ import { TaskComponent } from '../../task/task.component';
 import { DeliverTaskComponent } from '../../task/deliver-task/deliver-task.component';
 import { CourseListComponent } from '../../courses/course-list/course-list.component';
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
+import { CourseStudentsListComponent } from '../../courses/course-students-list/course-students-list.component';
+
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,5 +17,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'deliver-task/:id', component: DeliverTaskComponent },
     { path: 'course-list', component: CourseListComponent },
     { path: 'course-description/:id', component: CourseDescriptionComponent },
+    { path: 'course-students', component: CourseStudentsListComponent },
     { path: 'course-register', component: CourseRegisterComponent },
 ];
