@@ -1,0 +1,39 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div _ngcontent-c7="" class="card">
+    <div _ngcontent-c7="" class="card-header">
+      <h5 _ngcontent-c7="" class="title">Tarea: {{task.title}}</h5>
+    </div>
+    <div _ngcontent-c7="" class="card-body">
+      <form _ngcontent-c7="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+        <div _ngcontent-c7="" class="row">
+          <div _ngcontent-c7="" class="col-md-5 pr-1">
+            <div _ngcontent-c7="" class="form-group"><label _ngcontent-c7="">Fecha limite de entrega:</label><input
+                _ngcontent-c7="" class="form-control" disabled="" type="date" value="{{task.deliveryDate}}"></div>
+          </div>
+
+        </div>
+        <div _ngcontent-c7="" class="row">
+          <div _ngcontent-c7="" class="col-md-6 pr-1">
+            <div _ngcontent-c7="" class="form-group"><label _ngcontent-c7="">Comentarios:</label><input _ngcontent-c7=""
+                class="form-control" placeholder="Company" disabled="" type="text" value="{{task.comment}}"></div>
+          </div>
+        </div>
+        <div _ngcontent-c7="" class="row">
+          <div _ngcontent-c7="" class="col-md-12">
+            <div _ngcontent-c7="" class="form-group"><label _ngcontent-c7="">Mi tarea:</label><textarea _ngcontent-c7=""
+                class="form-control"  placeholder="Aqui escribes tu tarea"  [(ngModel)]="task.studentPresentation"></textarea></div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" (click)="deliverTask()">
+              <span aria-hidden="true"></span> Entregar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
