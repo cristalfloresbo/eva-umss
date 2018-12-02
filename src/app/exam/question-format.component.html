@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Pregunta {{index}}</h4>
+    </div>
+    <div class="card-body center-block">
+        <div class="form-group">
+            <input class="form-control" placeholder="Pregunta" aria-describedby="basic-addon1" [(ngModel)]="question.title"
+                name="question">
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-block col-md-2 pull-right" (click)="createAnswer()">
+                        <i class="now-ui-icons ui-1_simple-add"></i> A&ntilde;adir Respuesta
+                    </button>
+                </div>
+            </div>
+            <div *ngFor="let answer of question.answers; let i = index">
+                <app-answer-format [answer]="answer" [index]="i + 1"></app-answer-format>
+                <button class="btn btn-primary btn-block col-md-3 pull-right" (click)="deleteAnswer(i)">
+                    <i class="now-ui-icons ui-1_simple-remove"></i> Eliminar Respuesta {{i + 1}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
