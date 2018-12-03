@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
+import { CoursesService } from 'app/services/courses.service';
 
 @Component({
     selector: 'app-navbar',
@@ -15,10 +16,11 @@ export class NavbarComponent implements OnInit {
     mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
+    courses
     public isCollapsed = true;
-
-    constructor(location: Location, private element: ElementRef, private router: Router) {
+    curso
+    constructor(location: Location, private element: ElementRef, private router: Router,
+        private courseService: CoursesService) {
         this.location = location;
         this.sidebarVisible = false;
     }
@@ -35,6 +37,8 @@ export class NavbarComponent implements OnInit {
                 this.mobile_menu_visible = 0;
             }
         });
+        this.curso = "Seleccione un curso";
+        this.getCourses();
     }
 
     logout() {
@@ -156,5 +160,19 @@ export class NavbarComponent implements OnInit {
             }
         }
         return 'Dashboard';
+    }
+
+    getCourses() {
+        this.courseService.getCourses().subscribe(
+            data => {
+                this.courses = data.json();
+            }
+        );
+    }
+
+    setCourse(course){
+        this.curso = course.name;
+        localStorage.setItem("courseId", course.courseId);
+        console.log(localStorage.getItem('courseId'));
     }
 }

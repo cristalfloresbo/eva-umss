@@ -26,8 +26,10 @@ export class LoginComponent implements OnInit {
         let token = serverResponse.token;
         let tokenInfo = this.getDecodedAccessToken(token);
         console.log(tokenInfo); // show decoded token object in console
-        localStorage.setItem('user', tokenInfo.role);
         localStorage.setItem('token', token);
+        localStorage.setItem('user', tokenInfo.role);
+        localStorage.setItem('email', tokenInfo.sub);
+        localStorage.setItem('userId', tokenInfo.id);
         window.location.reload();
       }
     );
