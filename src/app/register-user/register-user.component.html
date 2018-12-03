@@ -13,6 +13,16 @@
               <div class="col-md-5 pr-1">
                 <div class="form-group">
                   <div class="form-group">
+                    <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                    <input class="form-control" placeholder="Nombre" aria-describedby="basic-addon1" [(ngModel)]="name"
+                      name="name">
+                  </div>
+                  <div class="form-group">
+                    <span class="input-group-addon" id="basic-addon1">Apellido</span>
+                    <input class="form-control" placeholder="Apellido" aria-describedby="basic-addon1" [(ngModel)]="lastName"
+                      name="lastName">
+                  </div>
+                  <div class="form-group">
                     <span class="input-group-addon" id="basic-addon1">Correo</span>
                     <input type="email" class="form-control" placeholder="Correo" aria-describedby="basic-addon1"
                       [(ngModel)]="email" name="email">
@@ -22,6 +32,14 @@
                     <span class="input-group-addon" id="basic-addon1">Contraseña</span>
                     <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1"
                       [(ngModel)]="password" name="password">
+                  </div>
+                  <div class="form-group">
+                    <span class="input-group-addon" id="basic-addon1">Rol</span>
+                    <select class="form-control" [(ngModel)]="rol" name="role">
+                      <option *ngFor="let rol of roles" [value]="rol">
+                        {{rol}}
+                      </option>
+                    </select>
                   </div>
                 </div>
                 <div class="panel-footer">

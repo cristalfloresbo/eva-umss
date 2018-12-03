@@ -20,7 +20,7 @@ export class CoursesService {
   getHeaders() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('authentication', 'Bearer' + localStorage.getItem('token'));
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
     return new RequestOptions({ headers: headers });
   }
 
