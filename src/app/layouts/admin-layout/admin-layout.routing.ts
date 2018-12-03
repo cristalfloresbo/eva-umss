@@ -21,6 +21,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'course-description/:id', component: CourseDescriptionComponent },
     { path: 'course-students', component: CourseStudentsListComponent },
     { path: 'course-register', component: CourseRegisterComponent },
-    { path: 'register-exam', component: ExamRegisterComponent },
+    { path: 'register-exam/:id', component: ExamRegisterComponent },
     { path: 'grades', component: GradeComponent },
 ];
