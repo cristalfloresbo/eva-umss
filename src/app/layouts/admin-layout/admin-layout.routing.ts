@@ -9,8 +9,10 @@ import { CourseDescriptionComponent } from '../../courses/course-description/cou
 import { CourseStudentsListComponent } from '../../courses/course-students-list/course-students-list.component';
 
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
-import { ExamRegisterComponent } from '../../exam/exam-register.component';
+import { ExamRegisterComponent } from '../../exam/exam-register/exam-register.component';
 import { GradeComponent } from 'app/grade/grade.component';
+import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
+import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -23,4 +25,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'course-register', component: CourseRegisterComponent },
     { path: 'register-exam/:id', component: ExamRegisterComponent },
     { path: 'grades', component: GradeComponent },
+    { path: 'exam-list', component: ExamListComponent },
+    { path: 'exam-student/:id', component: ExamStudentComponent },
 ];
