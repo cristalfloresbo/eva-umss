@@ -1,0 +1,39 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"> Notas</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th>
+                            Estudiante
+                        </th>
+                        <th>
+                            Curso
+                        </th>
+                        <th>
+                            Nota
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let grade of gradeList">
+                            <td>
+                                {{grade.student.name}}
+                            </td>
+                            <td>
+                                {{grade.course.name}}
+                            </td>
+                            <td >
+                                {{grade.value}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,9 +23,11 @@ import { CourseRegisterComponent } from '../../courses/course-register/course-re
 import { ExamRegisterComponent } from '../../exam/exam-register.component';
 import { QuestionFormat } from '../../exam/question-format.component';
 import { AnswerFormat } from '../../exam/answer-format.component';
+import { GradeComponent } from 'app/grade/grade.component';
 
 import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
+import { GradeService } from '../../services/grade.service';
 
 @NgModule({
   imports: [
@@ -46,6 +48,7 @@ import { TaskService } from '../../services/task.service';
     RegisterUserComponent,
     TaskComponent,
     DeliverTaskComponent,
+    GradeComponent,
     NotificationsComponent,
     CourseListComponent,
     CourseStudentsListComponent,
@@ -57,7 +60,8 @@ import { TaskService } from '../../services/task.service';
   ],
   providers: [
     CoursesService,
-    TaskService
+    TaskService,
+    GradeService
   ]
 })
 

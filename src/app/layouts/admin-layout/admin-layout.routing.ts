@@ -10,6 +10,7 @@ import { CourseStudentsListComponent } from '../../courses/course-students-list/
 
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
 import { ExamRegisterComponent } from '../../exam/exam-register.component';
+import { GradeComponent } from 'app/grade/grade.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -21,4 +22,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'course-students', component: CourseStudentsListComponent },
     { path: 'course-register', component: CourseRegisterComponent },
     { path: 'register-exam', component: ExamRegisterComponent },
+    { path: 'grades', component: GradeComponent },
 ];

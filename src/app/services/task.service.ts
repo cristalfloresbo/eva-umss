@@ -5,7 +5,7 @@ import { Task } from 'app/task/task';
 @Injectable()
 export class TaskService {
 
-  route = "http://localhost:54721/api/task";
+  route = "http://localhost:64277/api/Tasks";
 
   constructor(private http: Http) { }
 
