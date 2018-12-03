@@ -22,6 +22,6 @@ export class TaskService {
   }
 
   deliverTask(task: Task) {
-    return this.http.put(this.route, task);
+    return this.http.put(this.route + '/' + task.id, task);
   }
 }
