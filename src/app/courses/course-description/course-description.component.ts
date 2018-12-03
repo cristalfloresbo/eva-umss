@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from 'app/services/courses.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-course-description',
@@ -26,7 +27,8 @@ export class CourseDescriptionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private courseService: CoursesService) {
+    private courseService: CoursesService,
+    private toastr: ToastrService) {
     this.course = {};
   }
 
@@ -55,4 +57,17 @@ export class CourseDescriptionComponent implements OnInit {
     );
   }
 
+  register() {
+    this.courseService.register(this.course).subscribe();
+  }
+
+  showNotification(){
+    this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>Se ha registrado al curso</b>.', '', {
+      timeOut: 8000,
+      closeButton: true,
+      enableHtml: true,
+      toastClass: "alert alert-info alert-with-icon",
+      positionClass: 'toast-' + 'top' + '-' + 'right'
+    });
+  }
 }
