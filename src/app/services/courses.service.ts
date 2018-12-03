@@ -26,7 +26,7 @@ export class CoursesService {
   }
 
   postCourse(course: any) {
-    this.http.post(this.route, course);
+    return this.http.post(this.route, course);
   }
 
   register(course) {
