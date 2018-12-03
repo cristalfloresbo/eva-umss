@@ -26,7 +26,7 @@ export class CoursesService {
   }
 
   postCourse(course: any) {
-    return this.http.post(this.route, course);
+    return this.http.post(this.route, course, this.getHeaders());
   }
 
   register(course) {
@@ -50,5 +50,4 @@ export class CoursesService {
     }
     return this.http.post(this.gradeRoute, data, this.getHeaders());
   }
-
 }
