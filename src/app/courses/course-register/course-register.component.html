@@ -15,40 +15,29 @@
                                 <input class="form-control" placeholder="Nombre" aria-describedby="basic-addon1"
                                     [(ngModel)]="course.name" name="name">
                             </div>
-                            <br>
-                            <div class="form-group">
-                                <span class="input-group-addon" id="basic-addon1">Docente</span>
-                                <input class="form-control" placeholder="Docente" aria-describedby="basic-addon1"
-                                    [(ngModel)]="course.teacher" name="teacher">
-                            </div>
-                            <div class="form-group">
-                                <span class="input-group-addon" id="basic-addon1">Fecha
-                                    Inicio(Mes-D&iacute;a-A&ntilde;o)</span>
-                                <input class="form-control" placeholder="Fecha Inicio" aria-describedby="basic-addon1"
-                                    [(ngModel)]="course.startDate" name="startDate">
-                            </div>
-                            <div class="form-group">
-                                <span class="input-group-addon" id="basic-addon1">Fecha
-                                    Fin(Mes-D&iacute;a-A&ntilde;o)</span>
-                                <input class="form-control" placeholder="Fecha Fin" aria-describedby="basic-addon1"
-                                    [(ngModel)]="course.endDate" name="endDate">
-                            </div>
                             <div class="form-group">
                                 <span class="input-group-addon" id="basic-addon1">Description</span>
                                 <textarea class="form-control" placeholder="Description" aria-describedby="basic-addon1"
                                     [(ngModel)]="course.description" name="description"></textarea>
                             </div>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary" (click)="register()">
-                                    <span aria-hidden="true"></span> Crear
-                                </button>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <span class="input-group-addon" id="basic-addon1">Fecha</span>
+                                    <ngb-datepicker class="pull-right" #d1 [(ngModel)]="date" #c1="ngModel" name="date"></ngb-datepicker>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
+            <hr>
+            <div class="panel-footer">
+                <div class="btn-group">
+                    <button type="button pull-" class="btn btn-primary" (click)="register()">
+                        <span aria-hidden="true"></span> Crear
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
