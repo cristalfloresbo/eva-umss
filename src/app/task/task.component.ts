@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'app/services/task.service';
 import { Task } from './task';
+import { CoursesService } from 'app/services/courses.service';
+import { Course } from 'app/courses/course';
 
 @Component({
   selector: 'app-task',
@@ -13,15 +15,21 @@ export class TaskComponent implements OnInit {
   task = new Task ();
   studentRole: boolean;
   taskList;
-  constructor(private route: ActivatedRoute, private service: TaskService) {
+  courses;
+  constructor(private route: ActivatedRoute, private service: TaskService,
+     private courseService: CoursesService) {
+    this.taskList = [];
+    this.courses = [];
     this.task.title = '';
     this.task.deliveryDate = null;
     this.task.comment = '';
+    this.task.course = new Course();
    }
 
   ngOnInit() {
     this.user = localStorage.getItem("user");
     console.log(this.user);
+    this.getCourses();
     this.verifyRoleUser();
     this.getTasks();
   }
@@ -40,6 +48,13 @@ export class TaskComponent implements OnInit {
     return this.service.getTasks().subscribe(
       data => {
         this.taskList = data.json();
+      }
+    );
+  }
+  getCourses() {
+    this.courseService.getCourses().subscribe(
+      data => {
+        this.courses = data.json();
       }
     );
   }
