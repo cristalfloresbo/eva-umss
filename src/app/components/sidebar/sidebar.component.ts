@@ -4,14 +4,20 @@ declare interface RouteInfo {
     path: string;
     title: string;
     icon: string;
-    class: string;
+    hidden: boolean;
 }
+
+let user = localStorage.getItem('user');
+let  isAdmin = user == 'Admin';
+let  isTeacher = user == 'Docente';
+let  isStudent = user == 'Estudiante';
+
 export const ROUTES: RouteInfo[] = [
-    { path: '/register-user', title: 'Registro de usuario',  icon:'users_single-02', class: '' },
-    { path: '/course-list', title: 'Lista de cursos',  icon:'files_single-copy-04', class: '' },
-    { path: '/course-students', title: 'Estudiantes',  icon:'files_single-copy-04', class: '' },
-    { path: '/task', title: 'Tareas',  icon:'design_bullet-list-67', class: '' },
-    { path: '/grades', title: 'Notas',  icon:'design_bullet-list-67', class: '' },
+    { path: '/register-user', title: 'Registro de usuario',  icon:'users_single-02', hidden: isAdmin },
+    { path: '/course-list', title: 'Lista de cursos',  icon:'files_single-copy-04', hidden: isStudent || isTeacher },
+    { path: '/course-students', title: 'Estudiantes',  icon:'files_single-copy-04', hidden: isTeacher },
+    { path: '/task', title: 'Tareas',  icon:'design_bullet-list-67', hidden: isTeacher || isStudent },
+    { path: '/grades', title: 'Notas',  icon:'design_bullet-list-67', hidden: isStudent || isTeacher},
     
     // { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'education_atom', class: '' },
@@ -29,6 +35,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  
 
   constructor() { }
 
