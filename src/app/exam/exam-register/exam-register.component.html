@@ -1,0 +1,62 @@
+<div class="panel-header panel-header-md colorbg">
+    <div class="header text-center">
+        <h2 class="title">Crear Examen</h2>
+    </div>
+</div>
+<div class="main-content">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <span class="input-group-addon" id="basic-addon1">Titulo</span>
+                                <input class="form-control" placeholder="Titulo" aria-describedby="basic-addon1"
+                                    [(ngModel)]="value.title" name="title">
+                            </div>
+                            <div class="form-group">
+                                <span class="input-group-addon" id="basic-addon1">Description</span>
+                                <textarea class="form-control" placeholder="Descripcion" aria-describedby="basic-addon1"
+                                    [(ngModel)]="value.description" name="description"></textarea>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6 pull-right">
+                                    <span class="input-group-addon col-md-4" id="basic-addon1">Hora</span>
+                                    <ngb-timepicker [(ngModel)]="time" [meridian]="true" name="time"></ngb-timepicker>
+                                </div>
+                                <div class="col-md-6 pull-right">
+                                    <div class="col-md-12">
+                                        <span class="input-group-addon col-md-4" id="basic-addon1">Fecha</span>
+                                    </div>
+                                    <ngb-datepicker #d1 [(ngModel)]="date" #c1="ngModel" name="date"></ngb-datepicker>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-block col-md-3 pull-right" (click)="createQuestion()">
+                                        <i class="now-ui-icons ui-1_simple-add"></i> A&ntilde;adir Pregunta
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngFor="let item of questions; let i = index">
+                                <app-question-format [question]="item" [index]="i + 1"></app-question-format>
+                                <button class="btn btn-primary btn-block col-md-3 pull-right" (click)="deleteQuestion(i)">
+                                    <i class="now-ui-icons ui-1_simple-remove"></i> Eliminar Pregunta {{i + 1}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="panel-footer">
+                <div class="btn-group">
+                    <button type="button pull-" class="btn btn-block btn-primary" (click)="register()">
+                        <i class="now-ui-icons ui-1_send"></i> Enviar Examen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

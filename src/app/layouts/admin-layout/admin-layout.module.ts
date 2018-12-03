@@ -24,8 +24,6 @@ import { ExamRegisterComponent } from '../../exam/exam-register/exam-register.co
 import { QuestionFormat } from '../../exam/exam-register/question-format.component';
 import { AnswerFormat } from '../../exam/exam-register/answer-format.component';
 import { GradeComponent } from 'app/grade/grade.component';
-import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
-import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
 
 import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
@@ -60,8 +58,6 @@ import { ExamsService } from 'app/services/exams.service';
     ExamRegisterComponent,
     QuestionFormat,
     AnswerFormat,
-    ExamListComponent,
-    ExamStudentComponent,
   ],
   providers: [
     CoursesService,
