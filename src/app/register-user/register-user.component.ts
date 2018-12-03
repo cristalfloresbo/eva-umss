@@ -11,6 +11,10 @@ export class RegisterUserComponent {
 
   email = ""
   password = ""
+  rol = ""
+  roles = ["Estudiante", "Admin", "Docente"]
+  name = ""
+  lastName = ""
 
   constructor(
     private authService: AuthService,
@@ -22,8 +26,11 @@ export class RegisterUserComponent {
   updateUser() {
     console.log(this.email);
     console.log(this.password);
+    console.log(this.name);
+    console.log(this.lastName);
+    console.log(this.rol);
     localStorage.setItem('user', "Admin");
-    this.authService.register(this.email, this.password).subscribe();
+    this.authService.register(this.email, this.password, this.rol, this.name, this.lastName).subscribe();
     this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Usuario registrado correctamente</b>.', '', {
       timeOut: 8000,
       closeButton: true,
