@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 @Injectable()
 export class CoursesService {
 
-  route = "http://localhost:64277/api/course";
+  route = "http://localhost:64277/api/courses";
 
   constructor(private http: Http) {
   }
