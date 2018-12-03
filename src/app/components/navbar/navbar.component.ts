@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
     courses
     public isCollapsed = true;
     curso
+    userRole = localStorage.getItem('user');
     constructor(location: Location, private element: ElementRef, private router: Router,
         private courseService: CoursesService) {
         this.location = location;

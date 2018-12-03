@@ -1,9 +1,8 @@
-
 <div class="logo">
     <a class="simple-text logo-mini">
-      <div class="logo-img">
-          <img src="./assets/img/angular2-logo-white.png"/>
-      </div>
+        <div class="logo-img">
+            <img src="./assets/img/angular2-logo-white.png" />
+        </div>
     </a>
     <a href="https://www.umss.edu.bo" class="simple-text logo-normal">
         EVA - UMSS
@@ -11,8 +10,8 @@
 </div>
 <div class="sidebar-wrapper">
     <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a [routerLink]="[menuItem.path]">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems"  class="nav-item">
+            <a *ngIf="menuItem.hidden" [routerLink]="[menuItem.path]">
                 <i class="now-ui-icons {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
