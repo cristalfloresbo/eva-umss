@@ -13,7 +13,13 @@ export class GradeComponent implements OnInit {
     gradeList;
 
     constructor(private service: GradeService) {
-        this.gradeList = [];
+        this.gradeList = [
+            {
+                student: 'Juan Garcia',
+                course: 'c#',
+                grade: '10'
+            }
+        ];
     }
 
     ngOnInit(): void {
@@ -23,8 +29,8 @@ export class GradeComponent implements OnInit {
     getGrades() {
         return this.service.getGrades().subscribe(
             data => {
-              this.gradeList = data.json();
+                //this.gradeList = data.json();
             }
-          );
+        );
     }
 }
