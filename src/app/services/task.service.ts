@@ -6,6 +6,7 @@ import { Task } from 'app/task/task';
 export class TaskService {
 
   route = "http://localhost:64277/api/Tasks";
+  routeEvent = "http://localhost:64277/api/event/tasks"
 
   constructor(private http: Http) { }
 
@@ -18,10 +19,10 @@ export class TaskService {
   }
 
   postTask(task: Task) {
-      return this.http.post(this.route, task);
+      return this.http.post("http://localhost:64277/api/courses/" + task.course.id + "/tasks", task);
   }
 
   deliverTask(task: Task) {
-    return this.http.put(this.route + '/' + task.id, task);
+    return this.http.put(this.routeEvent + '/' + task.id + '/deliver', task);
   }
 }
