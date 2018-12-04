@@ -24,10 +24,13 @@ import { ExamRegisterComponent } from '../../exam/exam-register.component';
 import { QuestionFormat } from '../../exam/question-format.component';
 import { AnswerFormat } from '../../exam/answer-format.component';
 import { GradeComponent } from 'app/grade/grade.component';
+import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
+import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
 
 import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
 import { GradeService } from '../../services/grade.service';
+import { ExamsService } from 'app/services/exams.service';
 
 @NgModule({
   imports: [
@@ -57,11 +60,14 @@ import { GradeService } from '../../services/grade.service';
     ExamRegisterComponent,
     QuestionFormat,
     AnswerFormat,
+    ExamListComponent,
+    ExamStudentComponent,
   ],
   providers: [
     CoursesService,
     TaskService,
-    GradeService
+    GradeService,
+    ExamsService,
   ]
 })
 
