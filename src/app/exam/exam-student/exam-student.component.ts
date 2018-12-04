@@ -49,6 +49,8 @@ export class ExamStudentComponent implements OnInit {
     onChange(index: number, idAnswer: any) {
         if (idAnswer != 'Seleccione...') {
             this.resultExam[index].idAnswer = +idAnswer;
+        } else {
+            this.resultExam[index].idAnswer = '';
         }
     }
 }
