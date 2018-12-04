@@ -21,7 +21,7 @@ export class CourseDescriptionComponent implements OnInit {
       "Trabajo final dirigido"
     ]
   }
-
+  userRole = localStorage.getItem('user');
   course;
   id;
 
