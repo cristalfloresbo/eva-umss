@@ -10,8 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExamStudentComponent implements OnInit {
 
-    exam = { title: '', description: ''};
-    questions = [];
+    exam = [];
     resultExam = [];
     idExam;
 
@@ -27,9 +26,9 @@ export class ExamStudentComponent implements OnInit {
         );
         this.examsService.getExamQuestions(this.idExam).subscribe(
             data => {
-                this.questions = data.json();
-                for (let item of this.questions) {
-                    this.resultExam.push({ idQuestion: item.questionId, idAnswer: '' });
+                this.exam = data.json();
+                for (let item of this.exam) {
+                    this.resultExam.push({ idQuestion: item.question.questionId, idAnswer: '' });
                 }
 
             }
@@ -37,26 +36,19 @@ export class ExamStudentComponent implements OnInit {
     }
 
     registerExam() {
-        this.examsService.postExamStudent(this.resultExam, this.idExam);
-        /*return this.examsService.postExamStudent(this.resultExam, this.idExam).subscribe(
-            res => this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>Se envio correctamente su examen</b>.', '', {
-              timeOut: 8000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-info alert-with-icon",
-              positionClass: 'toast-' + 'top' + '-' + 'right'
-            }),
-            err => this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> No se pudo enviar correctamente su examen</b>.', '', {
-              timeOut: 8000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-warning alert-with-icon",
-              positionClass: 'toast-' + 'top' + '-' + 'right'
-            }));
-            */
+        console.log(this.resultExam);
+        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>Se envio correctamente su examen</b>.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: "alert alert-info alert-with-icon",
+            positionClass: 'toast-' + 'top' + '-' + 'right'
+        });
     }
 
-    onChange(index: number, idAnswer: Number) {
-        this.resultExam[index].idAnswer = +idAnswer;
+    onChange(index: number, idAnswer: any) {
+        if (idAnswer != 'Seleccione...') {
+            this.resultExam[index].idAnswer = +idAnswer;
+        }
     }
 }
