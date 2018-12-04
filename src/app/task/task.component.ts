@@ -12,19 +12,16 @@ import { Course } from 'app/courses/course';
 })
 export class TaskComponent implements OnInit {
   user;
-  task = new Task ();
+  task;
   studentRole: boolean;
   taskList;
   courses;
   constructor(private route: ActivatedRoute, private service: TaskService,
-     private courseService: CoursesService) {
+    private courseService: CoursesService) {
+    this.task = {}
     this.taskList = [];
     this.courses = [];
-    this.task.title = '';
-    this.task.deliveryDate = null;
-    this.task.comment = '';
-    this.task.course = new Course();
-   }
+  }
 
   ngOnInit() {
     this.user = localStorage.getItem("user");
@@ -34,7 +31,8 @@ export class TaskComponent implements OnInit {
     this.getTasks();
   }
 
-  saveTask () {
+  saveTask() {
+    this.task.courseId = localStorage.getItem('courseId');
     console.log(this.task);
     this.service.postTask(this.task).subscribe();
     this.getTasks();
