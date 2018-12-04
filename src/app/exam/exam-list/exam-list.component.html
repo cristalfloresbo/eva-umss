@@ -1,0 +1,20 @@
+<div class="panel-header panel-header-md colorbg">
+    <div class="header text-center">
+        <h2 class="title">Examenes</h2>
+        <p class="category">Lista de Examenes disponibles</p>
+    </div>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div *ngFor="let exam of exams" class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../assets/img/bg5.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">{{exam.title}}</h4>
+                    <p class="card-text">{{exam.description}}</p>
+                    <a [routerLink]="['/exam-student', exam.testId]" class="btn btn-primary">Resolver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

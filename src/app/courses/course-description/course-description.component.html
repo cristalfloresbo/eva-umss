@@ -24,7 +24,7 @@
             </tbody>
           </table>
           <a class=" float-right btn boton" (click)="register()">Registrarse al curso</a>
-          <a class=" float-right btn boton" [routerLink]="['/register-exam', course.courseId]">Crear un examen</a>
+          <a class=" float-right btn boton" *ngIf="userRole == 'Docente'" [routerLink]="['/register-exam', course.courseId]">Crear un examen</a>
         </div>
       </div>
     </div>

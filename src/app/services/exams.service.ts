@@ -13,8 +13,8 @@ export class ExamsService {
     return this.http.get(this.route + 'tests', this.getHeaders());
   }
 
-  getExam(id) {
-    return this.http.get(this.route + 'tests' + '/' + id + '/' + 'questions', this.getHeaders());
+  getExamQuestions(id) {
+    return this.http.get(this.route + 'tests/' + id + '/questions', this.getHeaders());
   }
 
   getHeaders() {
