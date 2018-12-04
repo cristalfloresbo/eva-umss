@@ -1,28 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Task } from 'app/task/task';
 
 @Injectable()
 export class TaskService {
 
-  route = "http://localhost:64277/api/Tasks";
+  route = "http://localhost:64277/api/courses/";
   routeEvent = "http://localhost:64277/api/event/tasks"
 
   constructor(private http: Http) { }
 
   getTasks() {
-    return this.http.get(this.route);
+    return this.http.get(this.route + localStorage.getItem('courseId')+'/tasks');
   }
 
   getTask(id) {
-    return this.http.get(this.route + '/' + id);
+    return this.http.get(this.route + localStorage.getItem('courseId') + '/tasks/' + id);
   }
 
-  postTask(task: Task) {
-      return this.http.post("http://localhost:64277/api/courses/" + task.course.id + "/tasks", task);
+  postTask(task) {
+      return this.http.post("http://localhost:64277/api/courses/" + task.courseId + "/tasks", task, this.getHeaders());
   }
 
   deliverTask(task: Task) {
-    return this.http.put(this.routeEvent + '/' + task.id + '/deliver', task);
+    return this.http.put(this.route + localStorage.getItem('courseId')+'/tasks/' + task.id , task, this.getHeaders());
+  }
+
+  getHeaders() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    return new RequestOptions({ headers: headers });
   }
 }

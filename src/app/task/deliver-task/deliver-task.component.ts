@@ -9,14 +9,14 @@ import { Task } from '../task';
 })
 export class DeliverTaskComponent implements OnInit {
 
-  task = new Task ();
+  task;
   taskId: number ;
   constructor(private route: ActivatedRoute, private service: TaskService) {
+    this.task = {}
     this.task.studentPresentation = '';
   }
 
   ngOnInit() {
-    this.getTask();
     this.route.params.subscribe(
       params => {
         this.taskId = +params['id'];
