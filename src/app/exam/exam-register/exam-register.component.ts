@@ -11,9 +11,10 @@ import { ExamsService } from 'app/services/exams.service';
 })
 export class ExamRegisterComponent implements OnInit {
 
-    value = { title: '', date: '', description: '', questions: [] };
+    value = { title: '', date: '', timeStart: '', timeEnd: '', description: '', questions: [] };
     date = { year: '', month: '', day: '' };
-    time = { hour: '', minute: '' };
+    timeStart = { hour: '', minute: '' };
+    timeEnd = { hour: '', minute: '' };
     idCourse;
     questions: Question[];
 
@@ -43,8 +44,9 @@ export class ExamRegisterComponent implements OnInit {
 
     register() {
         this.value.questions = this.questions;
-        this.value.date = this.date.year + '-' + this.date.month + '-' + this.date.day  
-                            + 'T'+ this.time.hour + ':' + this.time.minute + ':00';
+        this.value.date = this.date.year + '-' + this.date.month + '-' + this.date.day;
+        this.value.timeStart = this.timeStart.hour + ':' + this.timeStart.minute + ':00';
+        this.value.timeEnd = this.timeEnd.hour + ':' + this.timeEnd.minute + ':00';
         console.log(this.value);
         this.examsService.postExam(this.value, this.idCourse).subscribe(
             res => this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Exam creado correctamente</b>.', '', {
