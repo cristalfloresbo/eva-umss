@@ -9,7 +9,7 @@ import { CourseDescriptionComponent } from '../../courses/course-description/cou
 import { CourseStudentsListComponent } from '../../courses/course-students-list/course-students-list.component';
 
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
-import { ExamRegisterComponent } from '../../exam/exam-register.component';
+import { ExamRegisterComponent } from '../../exam/exam-register/exam-register.component';
 import { GradeComponent } from 'app/grade/grade.component';
 
 export const AdminLayoutRoutes: Routes = [
