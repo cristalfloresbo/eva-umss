@@ -1,9 +1,9 @@
 <div class="panel-header panel-header-md colorbg">
   <div class="header text-center">
     <h2 class="title">Cursos</h2>
-    <p class="category">Lista de cursos disponibles
+    <p *ngIf="isStudent" class="category">Lista de cursos disponibles
     </p>
-    <a [routerLink]="['/course-register']" class="btn btn-primary">Crear Curso</a>
+    <a *ngIf="isTeacher" [routerLink]="['/course-register']" class="btn btn-primary">Crear Curso</a>
   </div>
 </div>
 
@@ -15,8 +15,8 @@
         <div class="card-body">
           <h4 class="card-title">{{course.name}}</h4>
           <p class="card-text">{{course.description}}</p>
-          <a [routerLink]="['/course-description', course.courseId]" class="btn btn-primary">Mas informacion</a>
-          <a *ngIf="userRole == 'Docente'" [routerLink]="['/register-exam', course.courseId]" class="btn btn-primary">Crear un Examen</a>
+          <a *ngIf="isStudent" [routerLink]="['/course-description', course.courseId]" class="btn btn-primary">Mas informacion</a>
+          <a *ngIf="isTeacher" [routerLink]="['/register-exam', course.courseId]" class="btn btn-primary">Crear un Examen</a>
         </div>
       </div>
     </div>

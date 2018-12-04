@@ -9,8 +9,9 @@ import { CoursesService } from 'app/services/courses.service';
 export class CourseListComponent implements OnInit {
 
   courses;
-  userRole = localStorage.getItem('user');
-
+  isStudent = localStorage.getItem('user') == 'Estudiante'
+  isTeacher = localStorage.getItem('user') == 'Docente'
+  
   constructor(private courseService: CoursesService) {
     this.courses = [];
   }
