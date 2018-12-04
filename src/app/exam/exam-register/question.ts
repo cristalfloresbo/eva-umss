@@ -1,10 +1,10 @@
-import { Answer } from '../exam/answer';
+import { Answer } from './answer';
 export class Question {
-    title: string;
+    value: string;
     answers: Answer[];
 
     constructor() {
-        this.title = '';
+        this.value = '';
         this.answers = [];
     }
 }

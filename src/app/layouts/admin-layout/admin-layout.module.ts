@@ -20,9 +20,9 @@ import { CourseListComponent } from '../../courses/course-list/course-list.compo
 import { CourseDescriptionComponent } from '../../courses/course-description/course-description.component';
 import { CourseStudentsListComponent } from '../../courses/course-students-list/course-students-list.component';
 import { CourseRegisterComponent } from '../../courses/course-register/course-register.component';
-import { ExamRegisterComponent } from '../../exam/exam-register.component';
-import { QuestionFormat } from '../../exam/question-format.component';
-import { AnswerFormat } from '../../exam/answer-format.component';
+import { ExamRegisterComponent } from '../../exam/exam-register/exam-register.component';
+import { QuestionFormat } from '../../exam/exam-register/question-format.component';
+import { AnswerFormat } from '../../exam/exam-register/answer-format.component';
 import { GradeComponent } from 'app/grade/grade.component';
 import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
 import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
