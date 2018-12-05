@@ -14,7 +14,7 @@ let  isStudent = user == 'Estudiante';
 
 export const ROUTES: RouteInfo[] = [
     { path: '/register-user', title: 'Registro de usuario',  icon:'users_single-02', hidden: isAdmin },
-    { path: '/course-list', title: 'Lista de cursos',  icon:'files_single-copy-04', hidden: isStudent},
+    { path: '/course-list', title: 'Lista de cursos',  icon:'files_single-copy-04', hidden: isStudent || isTeacher},
     { path: '/course-students', title: 'Estudiantes',  icon:'files_single-copy-04', hidden: isTeacher },
     { path: '/task', title: 'Tareas',  icon:'design_bullet-list-67', hidden: isTeacher || isStudent },
     { path: '/grades', title: 'Notas',  icon:'design_bullet-list-67', hidden: isStudent || isTeacher},

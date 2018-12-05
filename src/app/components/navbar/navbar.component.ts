@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
     }
 
     logout() {
-        localStorage.removeItem("user");
+        localStorage.clear();
         window.location.reload();
     }
 
