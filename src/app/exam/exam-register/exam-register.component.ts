@@ -3,6 +3,8 @@ import { Question } from './question';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ExamsService } from 'app/services/exams.service';
+import { NgbDatepickerConfig, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date';
 
 @Component({
     selector: 'app-exam-register',
@@ -18,7 +20,15 @@ export class ExamRegisterComponent implements OnInit {
     idCourse;
     questions: Question[];
 
-    constructor(private route: ActivatedRoute, private examsService: ExamsService, private toastr: ToastrService) {}
+    constructor(configDatepicker: NgbDatepickerConfig, calendar: NgbCalendar,
+        private route: ActivatedRoute, private examsService: ExamsService, private toastr: ToastrService) {
+        configDatepicker.minDate = { year: calendar.getToday().year, month: calendar.getToday().month, day: calendar.getToday().day };
+        configDatepicker.maxDate = { year: 2099, month: 12, day: 31 };
+        configDatepicker.outsideDays = 'hidden';
+        configDatepicker.markDisabled = (date: NgbDate) => calendar.getNext(date).month <= calendar.getToday().month
+                                                    && calendar.getNext(date).day <= calendar.getToday().day
+                                                    && calendar.getNext(date).year <= calendar.getToday().year;
+    }
 
     ngOnInit() {
         this.questions = [];
