@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from './question';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ExamsService } from 'app/services/exams.service';
 import { NgbDatepickerConfig, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
@@ -21,22 +21,23 @@ export class ExamRegisterComponent implements OnInit {
     questions: Question[];
 
     constructor(configDatepicker: NgbDatepickerConfig, calendar: NgbCalendar,
-        private route: ActivatedRoute, private examsService: ExamsService, private toastr: ToastrService) {
+        private activatedRoute: ActivatedRoute, private router: Router,
+        private examsService: ExamsService, private toastr: ToastrService) {
         configDatepicker.minDate = { year: calendar.getToday().year, month: calendar.getToday().month, day: calendar.getToday().day };
         configDatepicker.maxDate = { year: 2099, month: 12, day: 31 };
         configDatepicker.outsideDays = 'hidden';
         configDatepicker.markDisabled = (date: NgbDate) => calendar.getNext(date).month <= calendar.getToday().month
-                                                    && calendar.getNext(date).day <= calendar.getToday().day
-                                                    && calendar.getNext(date).year <= calendar.getToday().year;
+            && calendar.getNext(date).day <= calendar.getToday().day
+            && calendar.getNext(date).year <= calendar.getToday().year;
     }
 
     ngOnInit() {
         this.questions = [];
-        this.route.params.subscribe(
+        this.activatedRoute.params.subscribe(
             params => {
-              this.idCourse = +params['id'];
+                this.idCourse = +params['id'];
             }
-          )
+        )
     }
 
     deleteQuestion(num: number) {
@@ -57,21 +58,21 @@ export class ExamRegisterComponent implements OnInit {
         this.value.date = this.date.year + '-' + this.date.month + '-' + this.date.day;
         this.value.timeStart = this.timeStart.hour + ':' + this.timeStart.minute + ':00';
         this.value.timeEnd = this.timeEnd.hour + ':' + this.timeEnd.minute + ':00';
-        console.log(this.value);
         this.examsService.postExam(this.value, this.idCourse).subscribe(
-            res => this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Exam creado correctamente</b>.', '', {
-              timeOut: 8000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-info alert-with-icon",
-              positionClass: 'toast-' + 'top' + '-' + 'right'
-            }),
-            err => this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span> Exam no creado</b>.', '', {
-              timeOut: 8000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-warning alert-with-icon",
-              positionClass: 'toast-' + 'top' + '-' + 'right'
-            }));
+            res => {
+                        this.showMessage('Exam creado correctamente', 'alert alert-info alert-with-icon')
+                        this.router.navigate(['/dashboard'])
+                    },
+            err => this.showMessage('Exam no creado', 'alert alert-warning alert-with-icon'));
+    }
+
+    showMessage(message: string, toastClass: string) {
+        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>' + message + '</b>.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: toastClass,
+            positionClass: 'toast-' + 'top' + '-' + 'right'
+        })
     }
 }
