@@ -14,8 +14,8 @@
                             <span class="input-group-addon" id="basic-addon1">{{i + 1}}.- {{item.question.value}}</span>
                             <div class="card-body center-block">
                                 <select class="form-control" (change)="onChange(i, $event.target.value)">
-                                    <option>Seleccione...</option>
-                                    <option *ngFor="let answer of item.answers" [value]="answer.asnwerId">
+                                    <option [value]="-1">Seleccione...</option>
+                                    <option *ngFor="let answer of item.answers" [value]="answer.answerId">
                                         {{answer.value}}
                                     </option>
                                 </select>

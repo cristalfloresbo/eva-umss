@@ -27,4 +27,8 @@ export class ExamsService {
   postExam(exam: any, courseId: number) {
     return this.http.post(this.route + 'courses/' + courseId + '/tests', exam, this.getHeaders());
   }
+
+  postStudentExam(resultExam: any, testId: number) {
+    return this.http.post(this.route + 'event/tests/'+ testId +'/deliver', resultExam, this.getHeaders());
+  }
 }

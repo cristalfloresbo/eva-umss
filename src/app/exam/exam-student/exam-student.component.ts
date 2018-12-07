@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ExamsService } from 'app/services/exams.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-exam-student',
@@ -11,15 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ExamStudentComponent implements OnInit {
 
     exam = [];
-    resultExam = [];
+    resultExam = { answers: [] };
     idExam;
 
-    constructor(private route: ActivatedRoute,
+    constructor(private activatedRoute: ActivatedRoute, private router: Router,
         private examsService: ExamsService,
         private toastr: ToastrService) { }
 
     ngOnInit() {
-        this.route.params.subscribe(
+        this.activatedRoute.params.subscribe(
             params => {
                 this.idExam = +params['id'];
             }
@@ -28,29 +28,40 @@ export class ExamStudentComponent implements OnInit {
             data => {
                 this.exam = data.json();
                 for (let item of this.exam) {
-                    this.resultExam.push({ idQuestion: item.question.questionId, idAnswer: '' });
+                    this.resultExam.answers.push({ questionId: item.question.questionId, answerId: -1 });
                 }
-
             }
-        );
+        )
     }
 
     registerExam() {
-        console.log(this.resultExam);
-        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>Se envio correctamente su examen</b>.', '', {
+        this.removeQuestionWithAnswer();
+        this.examsService.postStudentExam(this.resultExam, this.idExam).subscribe(
+            res => {
+                    this.showMessage('Se envio correctamente su examen', 'alert alert-info alert-with-icon')
+                    this.router.navigate(['dashboard'])
+            },
+            err => this.showMessage('No se pudo envio su examen', 'alert alert-warning alert-with-icon')
+        );
+    }
+
+    showMessage(message: string, toastClass: string) {
+        this.toastr.info('<span class="now-ui-icons ui-1_bell-53"></span>' + message + '</b>.', '', {
             timeOut: 8000,
             closeButton: true,
             enableHtml: true,
-            toastClass: "alert alert-info alert-with-icon",
+            toastClass: toastClass,
             positionClass: 'toast-' + 'top' + '-' + 'right'
-        });
+        })
     }
 
-    onChange(index: number, idAnswer: any) {
-        if (idAnswer != 'Seleccione...') {
-            this.resultExam[index].idAnswer = +idAnswer;
-        } else {
-            this.resultExam[index].idAnswer = '';
-        }
+    onChange(index: number, answerId: any) {
+        this.resultExam.answers[index].answerId = +answerId;
+    }
+
+    removeQuestionWithAnswer() {
+        let result = [];
+        result = this.resultExam.answers.filter(item => item.answerId != -1);
+        this.resultExam.answers = result;
     }
 }
