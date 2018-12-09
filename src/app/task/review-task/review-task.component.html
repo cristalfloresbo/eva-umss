@@ -1,0 +1,30 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div _ngcontent-c7="" class="card" *ngFor="let task of taskList">
+        <div _ngcontent-c7="" class="card-header">
+            <h5 _ngcontent-c5="" class="title">Tarea: {{task.title}}</h5>
+            <div _ngcontent-c5="" class="form-check text-right">
+                <label _ngcontent-c5="" class="form-check-label">
+                    Aprobado
+                    <input _ngcontent-c5="" checked="" class="form-check-input" type="checkbox">
+                    <span _ngcontent-c5="" class="form-check-sign"></span>
+                </label>
+            </div>
+        </div>
+        <div _ngcontent-c7="" class="card-body">
+            <form _ngcontent-c7="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+                <div _ngcontent-c7="" class="row">
+                    <div _ngcontent-c7="" class="col-md-12">
+                        <div _ngcontent-c7="" class="form-group"><label _ngcontent-c7="">Tarea:</label>
+                            <textarea _ngcontent-c7="" class="form-control" disabled="">{{task.studentPresentation}}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

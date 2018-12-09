@@ -4,7 +4,7 @@ import { Task } from 'app/task/task';
 
 @Injectable()
 export class TaskService {
-
+    
   route = "http://localhost:64277/api/courses/";
   routeEvent = "http://localhost:64277/api/event/tasks"
 
@@ -25,6 +25,11 @@ export class TaskService {
   deliverTask(task: Task) {
     return this.http.put(this.route + localStorage.getItem('courseId')+'/tasks/' + task.id , task, this.getHeaders());
   }
+
+  getTasksByStudent(id: number): {
+    throw new Error("Method not implemented.");
+}
+
 
   getHeaders() {
     let headers = new Headers();

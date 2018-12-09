@@ -31,6 +31,7 @@ import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
 import { GradeService } from '../../services/grade.service';
 import { ExamsService } from 'app/services/exams.service';
+import { ReviewTaskComponent } from 'app/task/review-task/review-task.component';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import { ExamsService } from 'app/services/exams.service';
     AnswerFormat,
     ExamListComponent,
     ExamStudentComponent,
+    ReviewTaskComponent
   ],
   providers: [
     CoursesService,
