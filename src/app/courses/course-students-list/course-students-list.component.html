@@ -20,6 +20,9 @@
               <th>
 
               </th>
+              <th>
+
+              </th>
             </thead>
             <tbody>
               <tr *ngFor="let student of students">
@@ -35,6 +38,13 @@
                   <div class="btn-group">
                     <button type="button" class="btn btn-primary" (click)="calificar(student)">
                       <span aria-hidden="true"></span> Calificar
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" [routerLink]="['/review-task', student.id]">
+                      <span aria-hidden="true"></span> Ver Tareas
                     </button>
                   </div>
                 </td>

@@ -13,6 +13,7 @@ import { ExamRegisterComponent } from '../../exam/exam-register/exam-register.co
 import { GradeComponent } from 'app/grade/grade.component';
 import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
 import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
+import { ReviewTaskComponent } from 'app/task/review-task/review-task.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -27,5 +28,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'grades', component: GradeComponent },
     { path: 'exam-list', component: ExamListComponent },
     { path: 'exam-student/:id', component: ExamStudentComponent },
+    { path: 'review-task/:id', component: ReviewTaskComponent },
 
 ];
