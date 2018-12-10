@@ -4,14 +4,14 @@ import { Task } from 'app/task/task';
 
 @Injectable()
 export class TaskService {
-    
+
   route = "http://localhost:64277/api/courses/";
   routeEvent = "http://localhost:64277/api/event/tasks"
 
   constructor(private http: Http) { }
 
   getTasks() {
-    return this.http.get(this.route + localStorage.getItem('courseId')+'/tasks');
+    return this.http.get(this.route + localStorage.getItem('courseId') + '/tasks');
   }
 
   getTask(id) {
@@ -19,16 +19,16 @@ export class TaskService {
   }
 
   postTask(task) {
-      return this.http.post("http://localhost:64277/api/courses/" + task.courseId + "/tasks", task, this.getHeaders());
+    return this.http.post("http://localhost:64277/api/courses/" + task.courseId + "/tasks", task, this.getHeaders());
   }
 
   deliverTask(task: Task) {
-    return this.http.put(this.route + localStorage.getItem('courseId')+'/tasks/' + task.id , task, this.getHeaders());
+    return this.http.put(this.route + localStorage.getItem('courseId') + '/tasks/' + task.id, task, this.getHeaders());
   }
 
-  getTasksByStudent(id: number): {
+  getTasksByStudent(id: number): any {
     throw new Error("Method not implemented.");
-}
+  }
 
 
   getHeaders() {
