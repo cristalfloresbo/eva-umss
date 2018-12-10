@@ -1,0 +1,23 @@
+<div class="panel-header panel-header-md colorbg">
+    <div class="header text-center">
+        <h2 class="title">Examen Resuelto</h2>
+    </div>
+</div>
+<div class="main-content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" *ngFor="let item of examSolved; let i = index">
+                        <div class="card-body">
+                            <span class="input-group-addon" id="basic-addon1">{{i + 1}}.- {{item.question.value}}</span>
+                            <div class="card-body">
+                                <span class="input-group-addon" id="basic-addon1">{{item.answer.value}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

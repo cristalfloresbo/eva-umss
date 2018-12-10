@@ -12,7 +12,8 @@
                 <div class="card-body">
                     <h4 class="card-title">{{exam.title}}</h4>
                     <p class="card-text">{{exam.description}}</p>
-                    <a [routerLink]="['/exam-student', exam.testId]" class="btn btn-primary">Resolver</a>
+                    <a *ngIf="isTeacher" [routerLink]="['/student-solved-exam-list', exam.testId]" class="btn btn-primary"> Examenes Resueltos</a>
+                    <a *ngIf="isStudent" [routerLink]="['/exam-student', exam.testId]" class="btn btn-primary">Resolver</a>
                 </div>
             </div>
         </div>

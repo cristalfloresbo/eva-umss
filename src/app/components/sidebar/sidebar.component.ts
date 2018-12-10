@@ -18,7 +18,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/course-students', title: 'Estudiantes',  icon:'files_single-copy-04', hidden: isTeacher },
     { path: '/task', title: 'Tareas',  icon:'design_bullet-list-67', hidden: isTeacher || isStudent },
     { path: '/grades', title: 'Notas',  icon:'design_bullet-list-67', hidden: isStudent || isTeacher},
-    { path: '/exam-list', title: 'Examenes', icon: 'now-ui-icons design_vector', hidden: isStudent },
+    { path: '/exam-list', title: 'Examenes', icon: 'now-ui-icons design_vector', hidden: isStudent || isTeacher },
     
     // { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'education_atom', class: '' },

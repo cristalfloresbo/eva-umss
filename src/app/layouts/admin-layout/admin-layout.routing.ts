@@ -14,6 +14,8 @@ import { GradeComponent } from 'app/grade/grade.component';
 import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
 import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
 import { ReviewTaskComponent } from 'app/task/review-task/review-task.component';
+import { StudentSolvedExamListComponent } from 'app/exam/student-solved-exam-list/student-solved-exam-list.component';
+import { ViewExamSolvedComponent } from 'app/exam/view-exam-solved/view-exam-solved.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -29,5 +31,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'exam-list', component: ExamListComponent },
     { path: 'exam-student/:id', component: ExamStudentComponent },
     { path: 'review-task/:id', component: ReviewTaskComponent },
+    { path: 'student-solved-exam-list/:id', component: StudentSolvedExamListComponent },
+    { path: 'view-exam-solved/:id', component: ViewExamSolvedComponent },
 
 ];

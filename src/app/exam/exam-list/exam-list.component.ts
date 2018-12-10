@@ -9,6 +9,8 @@ import { ExamsService } from 'app/services/exams.service';
 export class ExamListComponent implements OnInit {
 
     exams: any[];
+    isStudent = localStorage.getItem('user') == 'Estudiante'
+    isTeacher = localStorage.getItem('user') == 'Docente'
 
     constructor(public examsService: ExamsService) { 
         this.exams = [];
