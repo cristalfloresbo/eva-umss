@@ -9,6 +9,14 @@ export class ExamsService {
   constructor(private http: Http) {
   }
 
+  getStudentSolvedExamList(id: any) {
+    return this.http.get(this.route + 'event/tests/' + id, this.getHeaders());
+  }
+
+  getExamSolved(studetId: any, testId: any) {
+    return this.http.get(this.route + 'event/tests/' + testId + '/students/' + studetId, this.getHeaders());
+  }
+
   getExams() {
     return this.http.get(this.route + 'tests', this.getHeaders());
   }
@@ -29,6 +37,6 @@ export class ExamsService {
   }
 
   postStudentExam(resultExam: any, testId: number) {
-    return this.http.post(this.route + 'event/tests/'+ testId +'/deliver', resultExam, this.getHeaders());
+    return this.http.post(this.route + 'event/tests/' + testId + '/deliver', resultExam, this.getHeaders());
   }
 }

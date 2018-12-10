@@ -38,10 +38,20 @@ export class ExamStudentComponent implements OnInit {
         this.removeQuestionWithAnswer();
         this.examsService.postStudentExam(this.resultExam, this.idExam).subscribe(
             res => {
-                    this.showMessage('Se envio correctamente su examen', 'alert alert-info alert-with-icon')
-                    this.router.navigate(['dashboard'])
+                this.showMessage('Se envio correctamente su examen', 'alert alert-info alert-with-icon')
+                this.router.navigate(['dashboard'])
             },
-            err => this.showMessage('No se pudo envio su examen', 'alert alert-warning alert-with-icon')
+            err => {
+                switch (err.status) {
+                    case 409: { 
+                        this.showMessage('Ya resolvi&oacute, no puede volver a enviar', 'alert alert-warning alert-with-icon')
+                        break;
+                    }
+                    default: {
+                        this.showMessage('No se pudo envio su examen', 'alert alert-warning alert-with-icon')
+                    }
+                }
+            }
         );
     }
 

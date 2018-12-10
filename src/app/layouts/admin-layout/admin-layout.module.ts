@@ -26,12 +26,14 @@ import { AnswerFormat } from '../../exam/exam-register/answer-format.component';
 import { GradeComponent } from 'app/grade/grade.component';
 import { ExamListComponent } from 'app/exam/exam-list/exam-list.component';
 import { ExamStudentComponent } from 'app/exam/exam-student/exam-student.component';
+import { ReviewTaskComponent } from 'app/task/review-task/review-task.component';
+import { ViewExamSolvedComponent } from 'app/exam/view-exam-solved/view-exam-solved.component';
+import { StudentSolvedExamListComponent } from 'app/exam/student-solved-exam-list/student-solved-exam-list.component';
 
 import { CoursesService } from '../../services/courses.service';
 import { TaskService } from '../../services/task.service';
 import { GradeService } from '../../services/grade.service';
 import { ExamsService } from 'app/services/exams.service';
-import { ReviewTaskComponent } from 'app/task/review-task/review-task.component';
 
 @NgModule({
   imports: [
@@ -63,7 +65,9 @@ import { ReviewTaskComponent } from 'app/task/review-task/review-task.component'
     AnswerFormat,
     ExamListComponent,
     ExamStudentComponent,
-    ReviewTaskComponent
+    ReviewTaskComponent,
+    StudentSolvedExamListComponent,
+    ViewExamSolvedComponent,
   ],
   providers: [
     CoursesService,
