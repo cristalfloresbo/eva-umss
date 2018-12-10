@@ -49,6 +49,7 @@ export class ExamStudentComponent implements OnInit {
                     }
                     default: {
                         this.showMessage('No se pudo envio su examen', 'alert alert-warning alert-with-icon')
+                        break;
                     }
                 }
             }
