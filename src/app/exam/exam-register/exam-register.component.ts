@@ -60,10 +60,20 @@ export class ExamRegisterComponent implements OnInit {
         this.value.timeEnd = this.timeEnd.hour + ':' + this.timeEnd.minute + ':00';
         this.examsService.postExam(this.value, this.idCourse).subscribe(
             res => {
+                this.showMessage('Examen creado correctamente', 'alert alert-info alert-with-icon')
+                this.router.navigate(['/dashboard'])
+            },
+            err => {
+                switch (err.status) {
+                    case 201:
                         this.showMessage('Examen creado correctamente', 'alert alert-info alert-with-icon')
                         this.router.navigate(['/dashboard'])
-                    },
-            err => this.showMessage('Examen no creado', 'alert alert-warning alert-with-icon'));
+                        break
+                    default:
+                        this.showMessage('Examen no creado', 'alert alert-warning alert-with-icon')
+                        break;
+                }
+            });
     }
 
     showMessage(message: string, toastClass: string) {
